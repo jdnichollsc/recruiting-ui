@@ -1,15 +1,17 @@
 import React from 'react';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
-import thunk from 'redux-thunk';
 
 const customRender = (
   ui,
   {
     initialState = {},
     reducer = state => state,
-    store = createStore(reducer, initialState, compose(applyMiddleware(thunk))),
+    store = configureStore({
+      reducer,
+      preloadedState: initialState,
+    }),
     ...options
   } = {}
 ) => {

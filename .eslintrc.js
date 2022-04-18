@@ -29,7 +29,7 @@ module.exports = {
       'error',
       {
         devDependencies: [
-          '**/*.{test}.js',
+          '**/*.test.js',
           'src/setupTests.js',
           'src/testUtils.js',
         ],
@@ -62,7 +62,7 @@ module.exports = {
           snakeCase: false,
           pascalCase: true,
         },
-        ignore: [/setupTests\.js$/, /testUtils\.js$/],
+        ignore: [/setupTests\.js$/, /testUtils\.js$/, /^use.*\.js$/],
       },
     ],
     'unicorn/consistent-destructuring': 'off',
